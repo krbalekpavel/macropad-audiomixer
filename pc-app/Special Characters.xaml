@@ -1,0 +1,55 @@
+﻿<Window x:Class="macropad_audiomixer.SpecialCharacterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:macropad_audiomixer"
+        mc:Ignorable="d"
+        Title="Special Characters" Height="300" Width="200" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border
+                CornerRadius="10" Background="{DynamicResource BackgroundColor}">
+            <ListBox x:Name="SCListBox" Margin="10,21,10,24" Background="{DynamicResource ButtonFaceColor}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextColor}">
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </Border>
+        <Image HorizontalAlignment="Left" Height="35" Margin="155,-1,0,0" VerticalAlignment="Top" Width="45" Source="bar.png"/>
+        <Label Content="Special Characters - enter in [] brackets" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" Foreground="{DynamicResource TextColor}"/>
+        <Button HorizontalAlignment="Left"  Style="{StaticResource MyButton}" Margin="167,4,0,0" VerticalAlignment="Top" Width="22" Height="15" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="close.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="CopyToClipboard" Content="Copy to clipboard" HorizontalAlignment="Left" Margin="52,278,0,0" VerticalAlignment="Top" Width="98" FontSize="11" Background="{DynamicResource ButtonFaceColor}" BorderBrush="{DynamicResource BorderColor}" Foreground="{DynamicResource TextColor}" Click="CopyToClipboard_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

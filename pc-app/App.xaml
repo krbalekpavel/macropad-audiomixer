@@ -1,0 +1,33 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:macropad_audiomixer"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" 
+             ShutdownMode="OnExplicitShutdown"
+             x:Class="macropad_audiomixer.App"
+             StartupUri="macropad_audiomixer.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BackgroundColor" Color="White"/>
+        <LinearGradientBrush x:Key="ButtonFaceColor" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="BorderColor" Color="#FFACACAC"/>
+        <SolidColorBrush x:Key="HoverColor" Color="Gray"/>
+        <SolidColorBrush x:Key="SelectedColor" Color="DimGray"/>
+        <System:Double x:Key="TextBox1FontSize">18</System:Double>
+        <System:Double x:Key="WindowScaleX">1</System:Double>
+        <System:Double x:Key="WindowScaleY">1</System:Double>
+        <ImageBrush x:Key="FaderDefault">
+            <ImageBrush.ImageSource>
+                ./fader-default.png
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+        <ImageBrush x:Key="FaderSelected">
+            <ImageBrush.ImageSource>
+                ./fader-selected.png
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,64 @@
+﻿<Window x:Class="macropad_audiomixer.AddSoundSession"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:macropad_audiomixer"
+        mc:Ignorable="d"
+        Title="Add button preset" Height="237" Width="284" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,-10" HorizontalAlignment="Center" Width="272">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Background="{DynamicResource BackgroundColor}"
+                CornerRadius="10" Margin="0,0,0,10"/>
+        <Image HorizontalAlignment="Left" Height="46" Margin="210,-1,0,0" VerticalAlignment="Top" Width="62" Source="bar.png"/>
+        <Label Content="Add app to control" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" Foreground="{DynamicResource TextColor}" Height="28" Width="102"/>
+        <Button HorizontalAlignment="Left" Style="{StaticResource MyButton}" Margin="235,5,0,0" VerticalAlignment="Top" Width="30" Height="19" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="close.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Save selected" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Margin="0,196,0,0" FontSize="12" Click="SavePreset1" Background="{DynamicResource ButtonFaceColor}" BorderBrush="{DynamicResource BorderColor}" Foreground="{DynamicResource TextColor}" Height="26">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ListBox x:Name="AppListBox" Margin="7,33,7,57" Background="{DynamicResource ButtonFaceColor}" BorderBrush="{DynamicResource BorderColor}" Foreground="{DynamicResource TextColor}">
+            <ListBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"></Setter>
+                </Style>
+            </ListBox.Resources>
+        </ListBox>
+        <Button Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54" Margin="11,196,0,0" FontSize="12" Click="Refresh" Background="{DynamicResource ButtonFaceColor}" BorderBrush="{DynamicResource BorderColor}" Foreground="{DynamicResource TextColor}" Height="26">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
